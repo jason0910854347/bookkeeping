@@ -1,0 +1,12 @@
+image: openjdk:8
+
+pipelines:
+  default:
+    - step:
+        caches:
+          - gradle
+        script:
+          - echo "#Start pipelines testing!"
+          - bash ./gradlew dependencies
+          - bash ./gradlew test --tests "com.BookKeeping.V1.AllTests"
+          - echo "#model tests finished!"
